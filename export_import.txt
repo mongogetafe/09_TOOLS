@@ -65,7 +65,25 @@ Y ahora volvemos a importar con un error
 {"_id": 8, "nombre": "Sara"}
 {"_id": 9, "nombre": "Raquel"}
 
-Con el modo upsert...
+Con el modo upsert actualiza los documentos coincidentes (campo _id) y los que no encuentre los crea.
 
+{"_id": 1, "nombre": "Pepe"}
+{"_id": 2, "nombre": "Pepe"}
+{"_id": 3, "nombre": "Pepe"}
+{"_id": 4, "nombre": "Pepe"}
+{"_id": 5, "nombre": "Pepe"}
+{"_id": 20, "nombre": "Pepe"}
 
+mongoimport --db="shop10" --collection="clientes" --file="/Users/pedro/Documents/09_TOOLS/clientes.json" --type=json  --mode="upsert"
+
+Con el modo merge actualizar los documentos coincidentes fusionando sus campos y los que no encuentre los crea.
+
+{"_id": 1, "apellidos": "Gómez"}
+{"_id": 2, "apellidos": "Gómez"}
+{"_id": 3, "apellidos": "Gómez"}
+{"_id": 4, "apellidos": "Gómez"}
+{"_id": 5, "apellidos": "Gómez"}
+{"_id": 40, "apellidos": "Gómez"}
+
+mongoimport --db="shop10" --collection="clientes" --file="/Users/pedro/Documents/09_TOOLS/clientes.json" --type=json  --mode="merge"
 
